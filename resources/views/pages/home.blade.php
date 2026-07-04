@@ -102,7 +102,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-4xl logo-font font-bold text-[#498352]">DỊCH VỤ MỚI NHẤT</h2>
-                <p class="text-slate-600 mt-3">Khám phá các liệu trình chăm sóc tại Berry Nice</p>
+                <p class="text-slate-600 mt-3">Khám phá các liệu trình chăm sóc tại BerryNice</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
