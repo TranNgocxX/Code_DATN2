@@ -22,7 +22,3 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
-
-# Ép Git phải đi vào thư mục storage để lấy ảnh demo
-!/storage/app/public/
-!/storage/app/public/**/*
