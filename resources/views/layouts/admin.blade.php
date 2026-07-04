@@ -23,7 +23,7 @@
     
     <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col shadow-xl z-20">
         <div class="p-5 flex items-center justify-center border-b border-slate-800">
-            <span class="text-xl font-bold text-white tracking-tight">BERRY NICE</span>
+            <span class="text-xl font-bold text-white tracking-tight">BERRYNICE</span>
         </div>
 
         <nav class="flex-1 mt-4 px-3 custom-scroll overflow-y-auto space-y-1">
@@ -79,79 +79,44 @@
 
     <div class="flex-1 flex flex-col min-w-0">
         <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-end px-8 shadow-sm">
-            <!-- TTCN -->
             <div class="flex items-center space-x-4 border-l border-slate-100 pl-6">
                 <div class="text-right hidden sm:block">
                     <p class="text-sm font-bold text-slate-800 leading-tight">{{ auth()->user()->name }}</p>
                     <span class="text-[10px] text-pink-600 font-bold uppercase tracking-tighter">Quản trị viên</span>
                 </div>
-    
+
                 <img 
                     class="h-10 w-10 rounded-full object-cover ring-2 ring-pink-50" 
                     src="{{ auth()->user()->avt ? asset('storage/' . auth()->user()->avt) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=f472b6&color=fff' }}" 
                     alt="{{ auth()->user()->name }}"
                 >
             </div>
-    
         </header>
 
         <main class="flex-1 overflow-y-auto p-8">
-            <!-- Thông báo Toast -->
             @if(session('success'))
-            <div id="toast-success" class="fixed top-5 right-5 z-50 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-2xl shadow-2xl border-l-4 border-green-500 transform transition-all duration-500 translate-x-0" role="alert">
+            <div id="toast-success" class="app-toast fixed top-5 right-5 z-50 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-2xl shadow-2xl border-l-4 border-green-500 transform transition-all duration-500 translate-x-0" role="alert">
                 <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
                     <i class="fas fa-check"></i>
                 </div>
                 <div class="ml-3 text-sm font-bold text-slate-700">{{ session('success') }}</div>
-                <button type="button" onclick="this.parentElement.remove()" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg p-1.5 inline-flex h-8 w-8">
+                <button type="button" class="close-toast-btn ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg p-1.5 inline-flex h-8 w-8">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-
-            <script>
-                setTimeout(() => {
-                    const toast = document.getElementById('toast-success');
-                    if(toast) {
-                        toast.style.opacity = '0';
-                        toast.style.transform = 'translateX(100px)';
-                        setTimeout(() => toast.remove(), 500);
-                    }
-                }, 4000);
-            </script>
             @endif
 
             @if(session('error'))
-                <div id="toast-error"
-                    class="fixed top-5 right-5 z-50 flex items-center w-full max-w-md p-4 text-gray-500 bg-white rounded-2xl shadow-2xl border-l-4 border-red-500 transform transition-all duration-500 translate-x-0"
-                    role="alert">
-
-                    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg">
-                        <i class="fas fa-circle-exclamation"></i>
-                    </div>
-
-                    <div class="ml-3 text-sm font-bold text-slate-700">
-                        {{ session('error') }}
-                    </div>
-
-                    <button type="button"
-                        onclick="this.parentElement.remove()"
-                        class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg p-1.5 inline-flex h-8 w-8">
-                        <i class="fas fa-times"></i>
-                    </button>
-
+            <div id="toast-error" class="app-toast fixed top-5 right-5 z-50 flex items-center w-full max-w-md p-4 text-gray-500 bg-white rounded-2xl shadow-2xl border-l-4 border-red-500 transform transition-all duration-500 translate-x-0" role="alert">
+                <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg">
+                    <i class="fas fa-circle-exclamation"></i>
                 </div>
-
-                <script>
-                setTimeout(() => {
-                    const toast = document.getElementById('toast-error');
-                    if (toast) {
-                        toast.style.opacity = '0';
-                        toast.style.transform = 'translateX(100px)';
-                        setTimeout(() => toast.remove(), 500);
-                    }
-                }, 4000);
-                </script>
-                @endif
+                <div class="ml-3 text-sm font-bold text-slate-700">{{ session('error') }}</div>
+                <button type="button" class="close-toast-btn ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg p-1.5 inline-flex h-8 w-8">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            @endif
 
             <div class="content-body">
                 @yield('content')
@@ -162,14 +127,25 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const flash = document.querySelector('.bg-white.border-l-4');
-        if (flash) {
-            setTimeout(() => {
-                flash.style.opacity = '0';
-                flash.style.transition = '0.5s';
-                setTimeout(() => flash.remove(), 500);
-            }, 3000);
+        function dismissToast(toast) {
+            if (!toast) return;
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(100px)';
+            setTimeout(() => toast.remove(), 500);
         }
+
+        const toasts = document.querySelectorAll('.app-toast');
+        toasts.forEach(toast => {
+            setTimeout(() => dismissToast(toast), 4000);
+        });
+
+        document.body.addEventListener('click', function(e) {
+            const closeBtn = e.target.closest('.close-toast-btn');
+            if (closeBtn) {
+                const toast = closeBtn.closest('.app-toast');
+                dismissToast(toast);
+            }
+        });
     });
 </script>
 
