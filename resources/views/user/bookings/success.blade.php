@@ -11,7 +11,7 @@
         <div class="text-center mb-10">
 
             <img src="/images/logo_BerryNice.png"
-                 alt="Berry Nice Spa"
+                 alt="BerryNice Spa"
                  class="mx-auto w-72 md:w-[420px] h-auto mb-8 opacity-95 drop-shadow-sm">
 
             <h1 class="text-xl md:text-2xl font-semibold tracking-wide text-gray-800 mb-5">
