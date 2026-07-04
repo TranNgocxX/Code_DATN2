@@ -78,35 +78,22 @@
     </aside>
 
     <div class="flex-1 flex flex-col min-w-0">
-    <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shadow-sm">
-        
-        <!-- tìm kiếm -->
-        <form action="{{ url()->current() }}" method="GET" class="relative group">
-            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-pink-500 transition-colors"></i>
-            <input 
-                type="text" 
-                name="keyword"
-                value="{{ request('keyword') }}"
-                placeholder="Tìm kiếm..."
-                class="w-64 md:w-80 pl-10 pr-4 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent text-sm transition-all"
-            >
-        </form>
-
-        <!-- TTCN -->
-        <div class="flex items-center space-x-4 border-l border-slate-100 pl-6">
-            <div class="text-right hidden sm:block">
-                <p class="text-sm font-bold text-slate-800 leading-tight">{{ auth()->user()->name }}</p>
-                <span class="text-[10px] text-pink-600 font-bold uppercase tracking-tighter">Quản trị viên</span>
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-end px-8 shadow-sm">
+            <!-- TTCN -->
+            <div class="flex items-center space-x-4 border-l border-slate-100 pl-6">
+                <div class="text-right hidden sm:block">
+                    <p class="text-sm font-bold text-slate-800 leading-tight">{{ auth()->user()->name }}</p>
+                    <span class="text-[10px] text-pink-600 font-bold uppercase tracking-tighter">Quản trị viên</span>
+                </div>
+    
+                <img 
+                    class="h-10 w-10 rounded-full object-cover ring-2 ring-pink-50" 
+                    src="{{ auth()->user()->avt ? asset('storage/' . auth()->user()->avt) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=f472b6&color=fff' }}" 
+                    alt="{{ auth()->user()->name }}"
+                >
             </div>
-
-            <img 
-                class="h-10 w-10 rounded-full object-cover ring-2 ring-pink-50" 
-                src="{{ auth()->user()->avt ? asset('storage/' . auth()->user()->avt) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=f472b6&color=fff' }}" 
-                alt="{{ auth()->user()->name }}"
-            >
-        </div>
-
-    </header>
+    
+        </header>
 
         <main class="flex-1 overflow-y-auto p-8">
             <!-- Thông báo Toast -->
