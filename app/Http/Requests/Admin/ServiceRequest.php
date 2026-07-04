@@ -13,9 +13,10 @@ class ServiceRequest extends FormRequest
 
     public function rules(): array
     {
+        $serviceId = $this->route('service') ? $this->route('service')->id : null;
+            
         return [
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:services,slug,' . $this->route('service'),
+            'name' => 'required|string|max:255|unique:services,name,' . $serviceId,
             'category_id' => 'required|exists:categories,id',
             'short_description' => 'nullable|string',
             'long_description' => 'nullable|string',
@@ -31,8 +32,7 @@ class ServiceRequest extends FormRequest
         return [
             'name.required' => 'Vui lòng nhập tên dịch vụ.',
             'name.max' => 'Tên dịch vụ không được vượt quá 255 ký tự.',
-            'slug.max' => 'Slug không được vượt quá 255 ký tự.',
-            'slug.unique' => 'Slug đã tồn tại. Vui lòng chọn tên khác.',
+            'name.unique' => 'Tên dịch vụ đã tồn tại.',
             'category_id.required' => 'Vui lòng chọn danh mục',
             'category_id.exists' => 'Danh mục không hợp lệ.',
             'image.image' => 'Tệp tải lên phải là hình ảnh.',
