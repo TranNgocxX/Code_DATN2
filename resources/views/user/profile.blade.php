@@ -3,7 +3,6 @@
 
 @section('content')
 @php
-    // Hệ thống Class dùng chung để đồng bộ UI/UX toàn bộ trang
     $inputClass = "form-field w-full px-5 py-3.5 bg-slate-50/60 border border-slate-200 rounded-xl focus:border-[#6B8F71] focus:ring-4 focus:ring-[#6B8F71]/10 outline-none transition-all duration-200 text-slate-800 placeholder-slate-400 text-sm";
     $labelClass = "block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 ml-1";
     $avatarClass = "w-32 h-32 object-cover rounded-full border-4 border-white shadow-md ring-1 ring-slate-100 mx-auto transition-transform duration-300 group-hover:scale-105";
@@ -12,13 +11,12 @@
 
 <div class="max-w-6xl mx-auto px-4 py-10">
     
-    {{-- Bố cục 2 - desktop --}}
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         
-        {{-- COL 1: AVATAR & ĐỔI MẬT KHẨU --}}
+        {{-- COL 1: AVT & ĐỔI MK --}}
         <div class="space-y-8 lg:col-span-1">
             
-            {{-- Thẻ hiển thị Avatar tối giản --}}
+            {{-- Avt --}}
             <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 text-center relative overflow-hidden">
                 <div class="absolute top-0 left-0 right-0 h-2 bg-[#6B8F71]"></div>
                 
@@ -34,7 +32,6 @@
                             @endif
                         </div>
                         
-                        {{-- Nút upload dùng text ký tự "+" thay cho SVG path dài dòng --}}
                         <label for="avt" class="absolute bottom-0 right-0 bg-[#6B8F71] text-white w-9 h-9 rounded-full cursor-pointer hover:scale-110 transition-all shadow-md flex items-center justify-center text-xl font-light select-none">
                             +
                             <input type="file" id="avt" name="avt" form="profile-form" class="hidden" accept="image/*">
@@ -46,7 +43,7 @@
                 <p class="text-xs text-slate-400 mt-0.5">{{ $user->email }}</p>
             </div>
 
-            {{-- Thẻ Đổi mật khẩu --}}
+            {{-- Đổi mk --}}
             <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 md:p-8">
                 <div class="flex items-center gap-2 mb-6 border-b border-slate-50 pb-3">
                     <span class="w-1.5 h-4 bg-[#6B8F71] rounded-full"></span>
@@ -72,6 +69,7 @@
                     <div>
                         <label class="{{ $labelClass }}">Xác nhận mật khẩu mới <span class="text-red-400">*</span></label>
                         <input type="password" name="password_confirmation" class="{{ $inputClass }}" required>
+                        @error('password_confirmation') <p class="{{ $errorClass }}">{{ $message }}</p> @enderror
                     </div>
 
                     <button type="submit"
@@ -82,7 +80,7 @@
             </div>
         </div>
 
-        {{-- COL 2: FORM THÔNG TIN TÀI KHOẢN --}}
+        {{-- COL 2: TTCN --}}
         <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
             
             <div class="border-b border-slate-100 px-8 py-6 bg-slate-50/30 flex items-center justify-between">
@@ -123,7 +121,6 @@
                     </div>
                 </div>
 
-                {{-- Khu vực lưu thay đổi tối giản --}}
                 <div class="mt-8 pt-6 border-t border-slate-100 flex justify-end">
                     <button type="submit" id="submit-btn" disabled
                         class="px-8 py-3.5 rounded-xl text-sm font-bold transition-all duration-200 outline-none
@@ -157,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // 2. Kiểm tra độc lập xem có file mới được chọn hay không
+        // 2. Kiểm tra có file mới được chọn hay không
         if (fileInput.files && fileInput.files.length > 0) {
             isChanged = true;
         }
@@ -172,11 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Lắng nghe sự kiện từ các trường nhập liệu text
     form.addEventListener('input', checkFormChanges);
     form.addEventListener('change', checkFormChanges);
-
-    // SỬA LỖI LOGIC: Lắng nghe riêng sự kiện đổi file của Avatar nằm ngoài Form
     fileInput.addEventListener('change', function (e) {
         // Chạy hàm kiểm tra thay đổi ngay khi chọn ảnh mới
         checkFormChanges();
@@ -184,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = e.target.files[0];
         if (!file) return;
 
-        // Xử lý tải và hiển thị nhanh ảnh đại diện tạm thời (Preview)
+        // Preview
         const reader = new FileReader();
         reader.onload = function () {
             const preview = document.getElementById('avatar-preview');
