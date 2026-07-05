@@ -43,6 +43,8 @@
                            class="mt-8 block text-pink-600 hover:text-pink-700 font-medium cursor-pointer transition">
                             Thay đổi ảnh đại diện
                     </label>
+                    @error('avt') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
+
                 </div>
             </div>
 
@@ -67,24 +69,28 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Họ và tên</label>
                                 <input type="text" name="name" value="{{ old('name', auth()->user()->name) }}"
                                        class="w-full px-5 py-3.5 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
+                                       @error('name') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
                             </div>
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
                                 <input type="email" name="email" value="{{ old('email', auth()->user()->email) }}"
                                        class="w-full px-5 py-3.5 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
+                                @error('email') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
                             </div>
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Số điện thoại</label>
                                 <input type="text" name="phone" value="{{ old('phone', auth()->user()->phone ?? '') }}"
                                        class="w-full px-5 py-3.5 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
+                                @error('phone') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
                             </div>
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Ngày sinh</label>
                                 <input type="date" name="birthday" value="{{ old('birthday', auth()->user()->birthday ?? '') }}"
                                        class="w-full px-5 py-3.5 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">
+                                @error('birthday') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
                             </div>
                         </div>
 
@@ -92,6 +98,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">Địa chỉ</label>
                             <textarea name="address" rows="3"
                                 class="w-full px-5 py-3.5 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition">{{ old('address', auth()->user()->address ?? '') }}</textarea>
+                            @error('address') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="mt-8 flex justify-end">
@@ -122,27 +129,21 @@
                                 <input type="password" name="current_password" 
                                        class="w-full px-5 py-3.5 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500">
                             </div>
-                            @error('current_password')
-                                <p class="mt-1 text-red-500 text-sm">{{ $message }}</p>
-                            @enderror
+                            @error('current_password') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Mật khẩu mới</label>
                                 <input type="password" name="password" 
                                        class="w-full px-5 py-3.5 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500">
                             </div>
-                            @error('password')
-                                <p class="mt-1 text-red-500 text-sm">{{ $message }}</p>
-                            @enderror
+                            @error('password') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Xác nhận mật khẩu mới</label>
                                 <input type="password" name="password_confirmation" 
                                        class="w-full px-5 py-3.5 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-500">
                             </div>
-                            @error('password_confirmation')
-                                <p class="mt-1 text-red-500 text-sm">{{ $message }}</p>
-                            @enderror
+                            @error('password_confirmation') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
                             
                         </div>
 
