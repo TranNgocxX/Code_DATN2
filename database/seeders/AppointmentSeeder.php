@@ -13,37 +13,38 @@ class AppointmentSeeder extends Seeder
         // Danh sách các lịch hẹn mẫu
         $appointments = [
             [
-                'user_id' => 4, // Nguyễn Minh Anh
-                'service_id' => 1, // Tẩy tế bào chết kim cương
-                'employee_id' => 1,
-                'start_time' => Carbon::now()->addDays(1)->setTime(9, 0),
-                'status' => 'confirmed',
-                'price' => 2600000,
-                'total_price' => 2600000,
+                'user_id' => 23, // Ly
+                'service_id' => 4, // Chăm sóc da mặt nhanh (max_slot=2)
+                'employee_id' => null,
+                'start_time' => Carbon::now()->addHours(1),
+                'status' => 'pending',
+                'price' => 800000,
+                'total_price' => 800000,
                 'payment_method' => 'cash',
                 'payment_status' => 'unpaid',
                 'details' => [
-                    'customer_name' => 'Nguyễn Minh Anh',
-                    'phone' => '0911111111',
-                    'health_status' => 'Da nhạy cảm, hơi khô',
-                    'notes' => 'Khách muốn dùng phòng riêng'
+                    'customer_name' => 'Ly',
+                    'phone' => '0933333333',
+                    'health_status' => 'Mặt đang dị ứng',
+                    'notes' => 'Cần nhân viên tay nghề cao'
                 ]
             ],
+
             [
-                'user_id' => 5, // Trần  Ngọc
-                'service_id' => 5, // Gội đầu truyền thống
-                'employee_id' => 3,
-                'start_time' => Carbon::now()->subDays(2)->setTime(14, 30),
-                'status' => 'completed',
-                'price' => 550000,
-                'total_price' => 550000,
-                'payment_method' => 'qr',
-                'payment_status' => 'paid',
+                'user_id' => 24, // Oanh
+                'service_id' => 4, // Chăm sóc da mặt nhanh (max_slot=2)
+                'employee_id' => null,
+                'start_time' => Carbon::now()->addHours(1),
+                'status' => 'pending',
+                'price' => 800000,
+                'total_price' => 800000,
+                'payment_method' => 'cash',
+                'payment_status' => 'unpaid',
                 'details' => [
-                    'customer_name' => 'Trần Thị Ngọc',
-                    'phone' => '0922222222',
+                    'customer_name' => 'Oanh',
+                    'phone' => '0933333333',
                     'health_status' => 'Bình thường',
-                    'notes' => 'Gội kỹ phần gáy'
+                    'notes' => 'Muốn xoa bóp nhẹ nhàng'
                 ]
             ],
             [
@@ -61,6 +62,40 @@ class AppointmentSeeder extends Seeder
                     'phone' => '0933333333',
                     'health_status' => 'Đau mỏi vai gáy nặng',
                     'notes' => 'Cần nhân viên tay nghề cao'
+                ]
+            ],
+            [
+                'user_id' => 4, // Nguyễn Minh Anh
+                'service_id' => 1, // Tẩy tế bào chết kim cương
+                'employee_id' => 1,
+                'start_time' => Carbon::now()->addDays(1)->setTime(9, 0),
+                'status' => 'confirmed',
+                'price' => 2600000,
+                'total_price' => 2600000,
+                'payment_method' => 'cash',
+                'payment_status' => 'unpaid',
+                'details' => [
+                    'customer_name' => 'Nguyễn Minh Anh',
+                    'phone' => '0911111111',
+                    'health_status' => 'Da nhạy cảm, hơi khô',
+                    'notes' => 'Khách muốn dùng phòng riêng'
+                ]
+            ],
+            [
+                'user_id' => 9,
+                'service_id' => 14,
+                'employee_id' => null,
+                'start_time' => Carbon::now()->addDays(2)->setTime(10, 0),
+                'status' => 'pending',
+                'price' => 249000,
+                'total_price' => 249000,
+                'payment_method' => 'cash',
+                'payment_status' => 'unpaid',
+                'details' => [
+                    'customer_name' => 'Khách Mai',
+                    'phone' => '0944444444',
+                    'health_status' => 'Bình thường',
+                    'notes' => 'Khách lần đầu đến Spa'
                 ]
             ],
             [
@@ -98,15 +133,100 @@ class AppointmentSeeder extends Seeder
                 ]
             ],
             [
-                'user_id' => 9,
+                'user_id' => 17,
+                'service_id' => 11,
+                'employee_id' => 7,
+                'start_time' => Carbon::now()->subDays(1)->setTime(3, 0),
+                'status' => 'completed',
+                'price' => 710000,
+                'total_price' => 710000,
+                'payment_method' => 'qr',
+                'payment_status' => 'paid',
+                'details' => [
+                    'customer_name' => 'Khách Lan',
+                    'phone' => '0944444444',
+                    'health_status' => 'Bình thường',
+                    'notes' => 'Khách lần đầu đến Spa'
+                ]
+            ],
+            [
+                'user_id' => 10,
+                'service_id' => 11,
+                'employee_id' => 7,
+                'start_time' => Carbon::now()->subDays(1)->setTime(5, 0),
+                'status' => 'completed',
+                'price' => 710000,
+                'total_price' => 710000,
+                'payment_method' => 'qr',
+                'payment_status' => 'paid',
+                'details' => [
+                    'customer_name' => 'Minh Lan',
+                    'phone' => '0944444444',
+                    'health_status' => 'Bình thường',
+                    'notes' => 'đặt hộ'
+                ]
+            ],
+            [
+                'user_id' => 5, // Trần  Ngọc
+                'service_id' => 5, // Gội đầu truyền thống
+                'employee_id' => 3,
+                'start_time' => Carbon::now()->subDays(2)->setTime(14, 30),
+                'status' => 'completed',
+                'price' => 550000,
+                'total_price' => 550000,
+                'payment_method' => 'qr',
+                'payment_status' => 'paid',
+                'details' => [
+                    'customer_name' => 'Trần Thị Ngọc',
+                    'phone' => '0922222222',
+                    'health_status' => 'Bình thường',
+                    'notes' => 'Gội kỹ phần gáy'
+                ]
+            ],
+            [
+                'user_id' => 19,
+                'service_id' => 18,
+                'employee_id' => 7,
+                'start_time' => Carbon::now()->subDays(2)->setTime(10, 0),
+                'status' => 'completed',
+                'price' => 950000,
+                'total_price' => 950000,
+                'payment_method' => 'cash',
+                'payment_status' => 'paid',
+                'details' => [
+                    'customer_name' => 'Phạm Thị Dung',
+                    'phone' => '0944444444',
+                    'health_status' => 'Bình thường',
+                    'notes' => 'Khách lần đầu đến Spa'
+                ]
+            ],
+            [
+                'user_id' => 6,
+                'service_id' => 11,
+                'employee_id' => 7,
+                'start_time' => Carbon::now()->subDays(2)->setTime(3, 0),
+                'status' => 'completed',
+                'price' => 710000,
+                'total_price' => 710000,
+                'payment_method' => 'qr',
+                'payment_status' => 'paid',
+                'details' => [
+                    'customer_name' => 'Khách',
+                    'phone' => '0944444444',
+                    'health_status' => null,
+                    'notes' => 'Khách lần đầu đến Spa'
+                ]
+            ],
+            [
+                'user_id' => 20,
                 'service_id' => 14,
-                'employee_id' => null,
-                'start_time' => Carbon::now()->addDays(2)->setTime(10, 0),
-                'status' => 'pending',
+                'employee_id' => 2,
+                'start_time' => Carbon::now()->subDays(2)->setTime(5, 0),
+                'status' => 'completed',
                 'price' => 249000,
                 'total_price' => 249000,
-                'payment_method' => 'cash',
-                'payment_status' => 'unpaid',
+                'payment_method' => 'qr',
+                'payment_status' => 'paid',
                 'details' => [
                     'customer_name' => 'Khách Mai',
                     'phone' => '0944444444',
@@ -148,92 +268,7 @@ class AppointmentSeeder extends Seeder
                     'notes' => 'Gội kỹ phần gáy'
                 ]
             ],
-            [
-                'user_id' => 19,
-                'service_id' => 18,
-                'employee_id' => 7,
-                'start_time' => Carbon::now()->subDays(2)->setTime(10, 0),
-                'status' => 'completed',
-                'price' => 950000,
-                'total_price' => 950000,
-                'payment_method' => 'cash',
-                'payment_status' => 'paid',
-                'details' => [
-                    'customer_name' => 'Phạm Thị Dung',
-                    'phone' => '0944444444',
-                    'health_status' => 'Bình thường',
-                    'notes' => 'Khách lần đầu đến Spa'
-                ]
-            ],
-            [
-                'user_id' => 17,
-                'service_id' => 11,
-                'employee_id' => 7,
-                'start_time' => Carbon::now()->subDays(1)->setTime(3, 0),
-                'status' => 'completed',
-                'price' => 710000,
-                'total_price' => 710000,
-                'payment_method' => 'qr',
-                'payment_status' => 'paid',
-                'details' => [
-                    'customer_name' => 'Khách Lan',
-                    'phone' => '0944444444',
-                    'health_status' => 'Bình thường',
-                    'notes' => 'Khách lần đầu đến Spa'
-                ]
-            ],
-            [
-                'user_id' => 20,
-                'service_id' => 14,
-                'employee_id' => 2,
-                'start_time' => Carbon::now()->subDays(2)->setTime(5, 0),
-                'status' => 'completed',
-                'price' => 249000,
-                'total_price' => 249000,
-                'payment_method' => 'qr',
-                'payment_status' => 'paid',
-                'details' => [
-                    'customer_name' => 'Khách Mai',
-                    'phone' => '0944444444',
-                    'health_status' => 'Bình thường',
-                    'notes' => 'Khách lần đầu đến Spa'
-                ]
-            ],
-            [
-                'user_id' => 23, // Ly
-                'service_id' => 4, // Chăm sóc da mặt nhanh (max_slot=2)
-                'employee_id' => null,
-                'start_time' => Carbon::now()->addHours(1),
-                'status' => 'pending',
-                'price' => 800000,
-                'total_price' => 800000,
-                'payment_method' => 'cash',
-                'payment_status' => 'unpaid',
-                'details' => [
-                    'customer_name' => 'Ly',
-                    'phone' => '0933333333',
-                    'health_status' => 'Mặt đang dị ứng',
-                    'notes' => 'Cần nhân viên tay nghề cao'
-                ]
-            ],
 
-            [
-                'user_id' => 24, // Oanh
-                'service_id' => 4, // Chăm sóc da mặt nhanh (max_slot=2)
-                'employee_id' => null,
-                'start_time' => Carbon::now()->addHours(1),
-                'status' => 'pending',
-                'price' => 800000,
-                'total_price' => 800000,
-                'payment_method' => 'cash',
-                'payment_status' => 'unpaid',
-                'details' => [
-                    'customer_name' => 'Oanh',
-                    'phone' => '0933333333',
-                    'health_status' => 'Bình thường',
-                    'notes' => 'Muốn xoa bóp nhẹ nhàng'
-                ]
-            ],
         ];
 
         foreach ($appointments as $item) {
