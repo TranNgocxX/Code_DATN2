@@ -13,12 +13,12 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            ['name' => 'Chăm sóc da mặt', 'slug' => 'cham-soc-da-mat', 'logo' => null, 'description' => null, 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Chăm sóc tóc', 'slug' => 'cham-soc-toc', 'logo' => null, 'description' => null, 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Massage thư giãn', 'slug' => 'massage-thu-gian', 'logo' => null, 'description' => null, 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Tẩy da chết', 'slug' => 'tay-da-chet', 'logo' => null, 'description' => null, 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Waxing', 'slug' => 'waxing', 'logo' => null, 'description' => null, 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Tắm trắng thảo mộc', 'slug' => 'tam-trang-thao-moc', 'logo' => null, 'description' => null, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Chăm sóc da mặt', 'slug' => 'cham-soc-da-mat', 'logo' => 'categories/facial.png', 'description' => null, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Chăm sóc tóc', 'slug' => 'cham-soc-toc', 'logo' => 'categories/hair.png', 'description' => null, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Massage thư giãn', 'slug' => 'massage-thu-gian', 'logo' => 'categories/massage.png', 'description' => null, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Tẩy da chết', 'slug' => 'tay-da-chet', 'logo' => 'categories/scrub.png', 'description' => null, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Waxing', 'slug' => 'waxing', 'logo' => 'categories/waxing.png', 'description' => null, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Tắm trắng thảo mộc', 'slug' => 'tam-trang-thao-moc', 'logo' => 'categories/bath.png', 'description' => null, 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }
