@@ -107,14 +107,14 @@
         <table class="w-full">
             <thead>
                 <tr class="border-b border-slate-200 bg-slate-50">
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase">ID</th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase">Khách hàng</th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase">Dịch vụ</th>
-                    <th class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase">Giá tiền</th>
-                    <th class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase">Thời gian</th>
-                    <th class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase">Nhân viên</th>
-                    <th class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase">Trạng thái</th>
-                    <th class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase w-32">Hành động</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase">ID</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase">Khách hàng</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase">Dịch vụ</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase">Giá tiền</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase">Thời gian</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase">Nhân viên</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase">Trạng thái</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase w-32">Hành động</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">

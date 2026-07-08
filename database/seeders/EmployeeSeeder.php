@@ -14,18 +14,18 @@ class EmployeeSeeder extends Seeder
     {
         // 1. Tạo dữ liệu mẫu cho bảng employees
         $employees = [
-            ['name' => 'Nguyễn Anh', 'phone' => '0901234561', 'email' => 'nhanvien1@gmail.com'],
-            ['name' => 'Minh Lan', 'phone' => '0901234562', 'email' => 'nhanvien2@gmail.com'],
-            ['name' => 'Lê Phương', 'phone' => '0901234563', 'email' => 'nhanvien3@gmail.com'],
-            ['name' => 'Bé Phương', 'phone' => '0901234564', 'email' => 'nhanvien4@gmail.com'],
-            ['name' => 'Nga Nguyễn', 'phone' => '0901234565', 'email' => 'nhanvien5@gmail.com'],
-            ['name' => 'Vũ Thu', 'phone' => '0901234566', 'email' => 'nhanvien6@gmail.com'],
-            ['name' => 'Ngô Kiều', 'phone' => '0901234567', 'email' => 'nhanvien7@gmail.com'],
-            ['name' => 'Phạm Hương', 'phone' => '0901234568', 'email' => 'nhanvien8@gmail.com'],
-            ['name' => 'Trần Mai', 'phone' => '0901234569', 'email' => 'nhanvien9@gmail.com'],
-            ['name' => 'Đỗ Hạnh', 'phone' => '0901234570', 'email' => 'nhanvien10@gmail.com'],
-            ['name' => 'Phan Thảo', 'phone' => '0901234571', 'email' => 'nhanvien11@gmail.com'],
-            ['name' => 'Lý Hương', 'phone' => '0901234572', 'email' => 'nhanvien12@gmail.com'],
+            ['name' => 'Nguyễn Anh', 'phone' => '0901234561', 'email' => 'nhanvien1@gmail.com', 'is_active' => true],
+            ['name' => 'Minh Lan', 'phone' => '0901234562', 'email' => 'nhanvien2@gmail.com', 'is_active' => true],
+            ['name' => 'Lê Phương', 'phone' => '0901234563', 'email' => 'nhanvien3@gmail.com', 'is_active' => true],
+            ['name' => 'Bé Phương', 'phone' => '0901234564', 'email' => 'nhanvien4@gmail.com', 'is_active' => true],
+            ['name' => 'Nga Nguyễn', 'phone' => '0901234565', 'email' => 'nhanvien5@gmail.com', 'is_active' => true],
+            ['name' => 'Vũ Thu', 'phone' => '0901234566', 'email' => 'nhanvien6@gmail.com', 'is_active' => true],
+            ['name' => 'Ngô Kiều', 'phone' => '0901234567', 'email' => 'nhanvien7@gmail.com', 'is_active' => true],
+            ['name' => 'Phạm Hương', 'phone' => '0901234568', 'email' => 'nhanvien8@gmail.com', 'is_active' => true],
+            ['name' => 'Trần Mai', 'phone' => '0901234569', 'email' => 'nhanvien9@gmail.com', 'is_active' => true],
+            ['name' => 'Đỗ Hạnh', 'phone' => '0901234570', 'email' => 'nhanvien10@gmail.com', 'is_active' => true],
+            ['name' => 'Phan Thảo', 'phone' => '0901234571', 'email' => 'nhanvien11@gmail.com', 'is_active' => true],
+            ['name' => 'Lý Hương', 'phone' => '0901234572', 'email' => 'nhanvien12@gmail.com', 'is_active' => true],
         ];
 
         foreach ($employees as $emp) {

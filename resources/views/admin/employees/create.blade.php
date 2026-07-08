@@ -38,6 +38,32 @@
                 </div>
             </div>
 
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">
+                    Trạng thái
+                </label>
+
+                <select
+                    name="is_active"
+                    class="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:outline-none focus:border-pink-300 focus:ring-4 focus:ring-pink-100">
+
+                    <option value="1"
+                        {{ old('is_active', 1) == 1 ? 'selected' : '' }}>
+                        Đang làm
+                    </option>
+
+                    <option value="0"
+                        {{ old('is_active') == 0 ? 'selected' : '' }}>
+                        Nghỉ việc
+                    </option>
+
+                </select>
+
+                @error('is_active')
+                    <p class="mt-1 text-red-500 text-sm">{{ $message }}</p>
+                @enderror
+            </div>
+
             <div class="mt-8">
                 <label class="block text-sm font-semibold text-slate-700 mb-3">Dịch vụ phụ trách</label>
                 <div class="grid grid-cols-2 gap-3 max-h-80 overflow-y-auto pr-2">

@@ -27,7 +27,7 @@
 
         <div>
             <h2 class="text-2xl font-semibold mb-6 logo-font">Giờ hoạt động</h2>
-            <p class="mb-4"><strong>BerryNice Spa:</strong> từ 9:00 đến 22:30, đặt lịch lần cuối lúc 21:00.</p>
+            <p class="mb-4"><strong>BerryNice Spa:</strong> từ 9:00 đến 22:00, đặt lịch lần cuối lúc 21:00.</p>
         </div>
     </div>
 </section>

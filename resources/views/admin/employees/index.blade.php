@@ -41,11 +41,12 @@
         <table class="w-full">
             <thead>
                 <tr class="border-b border-slate-200 bg-slate-50">
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">ID</th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Tên nhân viên</th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Số điện thoại</th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Email</th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Dịch vụ phụ trách</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">ID</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Tên nhân viên</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Số điện thoại</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider w-48">Email</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider w-32">Trạng thái</th>
+                    <th class="whitespace-nowrap px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Dịch vụ phụ trách</th>
                     <th class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider w-44">Hành động</th>
                 </tr>
             </thead>
@@ -56,6 +57,14 @@
                     <td class="px-6 py-5 font-medium text-slate-800">{{ $employee->name }}</td>
                     <td class="px-6 py-5 text-slate-600">{{ $employee->phone }}</td>
                     <td class="px-6 py-5 text-slate-600">{{ $employee->email }}</td>
+                    <td class="px-6 py-5 text-center">
+                        <span class="inline-block whitespace-nowrap px-3 py-1 rounded-full text-xs font-medium
+                            {{ $employee->is_active
+                                ? 'bg-green-100 text-green-700'
+                                : 'bg-slate-100 text-slate-600' }}">
+                            {{ $employee->is_active ? 'Đang làm' : 'Nghỉ việc' }}
+                        </span>
+                    </td>
                     <td class="px-6 py-5">
                         @if($employee->services->count() > 0)
                             <div class="flex flex-wrap gap-2">

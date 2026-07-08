@@ -127,6 +127,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Hàm đóng Toast kèm hiệu ứng mượt mà
         function dismissToast(toast) {
             if (!toast) return;
             toast.style.opacity = '0';
@@ -134,11 +135,13 @@
             setTimeout(() => toast.remove(), 500);
         }
 
+        // Tự động đóng tất cả Toast sau 4 giây
         const toasts = document.querySelectorAll('.app-toast');
         toasts.forEach(toast => {
             setTimeout(() => dismissToast(toast), 4000);
         });
 
+        // Lắng nghe sự kiện click nút đóng (Áp dụng Event Delegation)
         document.body.addEventListener('click', function(e) {
             const closeBtn = e.target.closest('.close-toast-btn');
             if (closeBtn) {

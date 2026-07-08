@@ -34,6 +34,33 @@
                            class="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:outline-none focus:border-pink-300 focus:ring-4 focus:ring-pink-100">
                     @error('email') <p class="mt-1 text-red-500 text-sm">{{ $message }}</p> @enderror
                 </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">
+                        Trạng thái
+                    </label>
+
+                    <select
+                        name="is_active"
+                        class="w-full px-5 py-4 border border-slate-200 rounded-2xl focus:outline-none focus:border-pink-300 focus:ring-4 focus:ring-pink-100">
+
+                        <option value="1"
+                            {{ old('is_active', $employee->is_active) ? 'selected' : '' }}>
+                            Đang làm
+                        </option>
+
+                        <option value="0"
+                            {{ old('is_active', $employee->is_active) == false ? 'selected' : '' }}>
+                            Nghỉ việc
+                        </option>
+
+                    </select>
+
+                    @error('is_active')
+                        <p class="mt-1 text-red-500 text-sm">{{ $message }}</p>
+                    @enderror
+                </div>
+
             </div>
 
             <div class="mt-8">

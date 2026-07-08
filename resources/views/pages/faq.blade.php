@@ -51,7 +51,7 @@
                     <i :class="open === 2 ? 'fas fa-chevron-up text-[#6B8F71]' : 'fas fa-chevron-down text-slate-400'"></i>
                 </button>
                 <div x-show="open === 2" x-transition class="mt-4 text-slate-700 leading-relaxed">
-                    BerryNice Spa mở cửa từ 9:00 đến 22:30 mỗi ngày. Đặt lịch trước 21:00 để đảm bảo thời gian phục vụ tốt nhất.
+                    BerryNice Spa mở cửa từ 9:00 đến 22:00 mỗi ngày. Đặt lịch trước 21:00 để đảm bảo thời gian phục vụ tốt nhất.
                 </div>
             </div>
 

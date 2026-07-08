@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // 2. Kiểm tra có file mới được chọn hay không
+        // 2. Kiểm tra độc lập xem có file mới được chọn hay không
         if (fileInput.files && fileInput.files.length > 0) {
             isChanged = true;
         }
@@ -169,8 +169,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Lắng nghe sự kiện từ các trường nhập liệu text
     form.addEventListener('input', checkFormChanges);
     form.addEventListener('change', checkFormChanges);
+
+    // Lắng nghe riêng sự kiện đổi file của Avatar nằm ngoài Form
     fileInput.addEventListener('change', function (e) {
         // Chạy hàm kiểm tra thay đổi ngay khi chọn ảnh mới
         checkFormChanges();
@@ -178,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = e.target.files[0];
         if (!file) return;
 
-        // Preview
+        // Xử lý tải và hiển thị nhanh ảnh đại diện tạm thời (Preview)
         const reader = new FileReader();
         reader.onload = function () {
             const preview = document.getElementById('avatar-preview');
