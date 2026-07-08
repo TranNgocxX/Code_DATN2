@@ -38,7 +38,8 @@ class EmployeeController extends Controller
         $employee = Employee::create([
             'name' => $request->name,
             'phone' => $request->phone,
-            'email' => $request->email
+            'email' => $request->email,
+            'is_active' => $request->boolean('is_active')
         ]);
 
         // Lưu quan hệ vào bảng employee_services
@@ -64,7 +65,8 @@ class EmployeeController extends Controller
         $employee->update([
             'name' => $request->name,
             'phone' => $request->phone,
-            'email' => $request->email
+            'email' => $request->email,
+            'is_active' => $request->boolean('is_active')
         ]);
 
         $employee->services()->sync($request->service_ids);
@@ -76,27 +78,17 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(Employee $employee)
-    // {
-    //     $employee->services()->detach();
-    //     $employee->delete();
-    //     return redirect()->route('admin.employees.index')
-    //         ->with('success', 'Xóa nhân viên thành công.');
-    // }
 
     public function destroy(Employee $employee)
     {
         $hasAppointment = $employee->appointments()
-            ->whereIn('status', [
-                'confirmed',
-                'completed',
-            ])
+            ->whereIn('status', ['confirmed', 'completed',])
             ->exists();
 
         if ($hasAppointment) {
             return back()->with(
                 'error',
-                'Không thể xóa nhân viên vì đã hoặc đang được phân công thực hiện lịch hẹn.'
+                'Không thể xóa nhân viên vì đã/đang được phân công thực hiện lịch hẹn.'
             );
         }
 

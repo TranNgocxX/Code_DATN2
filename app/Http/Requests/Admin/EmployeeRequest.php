@@ -19,6 +19,7 @@ class EmployeeRequest extends FormRequest
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:10|regex:/^[0-9]+$/',
             'email' => 'nullable|email|unique:employees,email,' . $employeeId,
+            'is_active' => 'required|boolean',
             'service_ids' => 'required|array'
         ];
     }
@@ -33,6 +34,7 @@ class EmployeeRequest extends FormRequest
             'phone.max' => 'Số điện thoại không được vượt quá 10 ký tự.',
             'email.email' => 'Vui lòng nhập địa chỉ email hợp lệ.',
             'email.unique' => 'Địa chỉ email đã tồn tại.',
+            'is_active.required' => 'Vui lòng chọn trạng thái cho nhân viên.',
             'service_ids.required' => 'Vui lòng chọn ít nhất một dịch vụ cho nhân viên.'
         ];
     }

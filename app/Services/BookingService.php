@@ -86,8 +86,8 @@ class BookingService
     public function getEmployees($appointment)
     {
         return Employee::query()
-            // lọc NV có kỹ năng phù hợp
-            ->whereHas('services', function ($q) use ($appointment) {
+            ->where('is_active', true)   // chỉ lấy nhân viên đang làm
+            ->whereHas('services', function ($q) use ($appointment) { // chỉ lấy NV có kỹ năng phù hợp
                 $q->where('services.id', $appointment->service_id);
             })
             // sd Scope trong Employee để check bận 

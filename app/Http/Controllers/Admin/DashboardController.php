@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function __construct(
+    public function __construct( // Inject DashboardService vào controller
         protected DashboardService $dashboardService
     ) {}
 
